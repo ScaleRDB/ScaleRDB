@@ -1,5 +1,5 @@
 # ScaleRDB
-ScaleRDB: A Scalable Relational Database for Manycore Systems. (Summited in VLDB'25) 
+ScaleRDB: A Scalable Relational Database for Manycore Systems. (Summited in VLDB'26) 
 
 
 ## Introduction
