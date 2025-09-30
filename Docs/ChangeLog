@@ -1,0 +1,50 @@
+commit d23d5a6f8ab79bce83b450ab327305f9bb298ede
+Author: Balasubramanian Kandasamy <balasubramanian.kandasamy@oracle.com>
+Date:   Wed Jan 27 14:09:45 2016 +0530
+
+    Followup fix to enable SysV scripts work under systemd in SLES12
+
+commit 4467dfc352655a398faa5187cda755c08cac4bca
+Author: Balasubramanian Kandasamy <balasubramanian.kandasamy@oracle.com>
+Date:   Mon Jan 25 16:34:58 2016 +0530
+
+    Fix to enable SysV scripts work under systemd in SLES12
+    
+    (cherry picked from commit 08614a3a5654dadf3b0b358843049fbdfe77251b)
+
+commit 46c434f1c1602e994905e4ca5733f6a0506f57d1
+Author: Sreedhar Sreedhargadda <sreedhar.sreedhargadda@oracle.com>
+Date:   Tue Jan 26 13:09:14 2016 +0100
+
+    Updated the version files
+
+commit c55921321d450f0376fe2682b874f1ed3817b112
+Author: Frazer Clement <frazer.clement@oracle.com>
+Date:   Mon Jan 25 11:38:40 2016 +0000
+
+    Bug #22582233 NDB : MAXDISKWRITESPEEDOWNRESTART NOT USED
+    
+    The fix for
+      Bug 20204854 BACKUP FAILING UNDER HEAVY LOAD EXCEPT WHEN
+      SNAPSHOTSTART USED
+    
+    contained a bug which resulted in the wrong disk write
+    speed configuration parameter being used during System
+    and Node restarts.
+    
+    MaxDiskWriteSpeedOtherNodeRestart was used instead of
+    MaxDiskWriteSpeedOwnRestart.
+    
+    MaxDiskWriteSpeedOwnRestart       (Min=Max,
+                                       Default 200MB/s)
+    MaxDiskWriteSpeedOtherNodeRestart (Default Min=10MB/s,
+                                               Max=50MB/s)
+    
+    This generally results in local checkpoint (LCP) taking
+    longer than designed during node and system restarts, which
+    increased the duration of node and system restarts.
+    
+    This is fixed so that MaxDiskWriteSpeedOwnRestart is
+    used while a node is restarting.
+    
+    (cherry picked from commit 567599d01b1f9043d0a079c2588906bcf8b80189)
